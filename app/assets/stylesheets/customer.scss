@@ -4,11 +4,12 @@
 .customer-view-wrapper {
   .customer-search-wrapper {
     width: 100%;
-    margin: 30px 0 !important;
+    margin: 0 0 20px 0 !important;
 
     #q {
-      width: 90%;
+      width: 89%;
       min-width: 400px;
+      margin-right: 5px;
     }
 
     .btn {

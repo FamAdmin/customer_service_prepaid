@@ -1,0 +1,50 @@
+<%= form_with(model: user, url: users_path, local: true) do |form| %>
+  <div class="form-label-group">
+    <%= form.label :first_name, 'First name' %>
+    <%= form.text_field :first_name, class: "form-control", placeholder: "First name" %>
+  </div>
+  <br />
+  <div class="form-label-group">
+    <%= form.label :last_name, 'Last name' %>
+    <%= form.text_field :last_name, class: "form-control", placeholder: "Last name" %>
+  </div>
+  <br />
+  <div class="form-label-group">
+    <%= form.label :email %><br />
+    <%= form.email_field :email, class: "form-control", autocomplete: "email", placeholder: "Email" %>
+  </div>
+  <br />
+  <div class="form-label-group">
+    <%= form.label :password %>
+    <em>(8 characters minimum)</em>
+    <br />
+    <%= form.password_field :password, class: "form-control", autocomplete: "new-password", placeholder: "Password" %>
+  </div>
+  <br />
+  <div class="form-label-group">
+    <%= form.label :password_confirmation %><br />
+    <%= form.password_field :password_confirmation, class: "form-control", autocomplete: "new-password", placeholder: "Password confirmation" %>
+  </div>
+  <br />
+  <div class="form-label-group">
+    <%= form.check_box :admin, class: "form-control" %>
+    <%= form.label :admin %>
+  </div>
+  <br />
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= link_to 'Back', users_path, class: 'btn btn-primary' %>
+  <%= form.submit class: 'btn btn-success' %>
+  <% unless user.new_record? %>
+    <%= link_to 'Show', user_path(user), class: 'btn btn-light' %>
+  <% end %>
+<% end %>

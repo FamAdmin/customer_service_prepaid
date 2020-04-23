@@ -51,8 +51,6 @@ class Customer::OrdersController < ApplicationController
     redirect_to :action => "show", :id => params[:id]
   end
 
-
-
   def line_item_params
     params.require(:line_items).permit(
       :sku,

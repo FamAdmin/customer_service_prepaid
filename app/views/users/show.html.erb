@@ -1,0 +1,13 @@
+<h3>User Details</h3>
+
+<div class="card">
+  <div class="card-body">
+    <p><b>First name:</b> <%= @user.first_name %></p>
+    <p><b>Last name:</b> <%= @user.last_name %></p>
+    <p><b>Email:</b> <%= @user.email %></p>
+    <b>Admin:</b> <%= @user.is_admin? %>
+  </div>
+</div>
+<br>
+<%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-success' %>
+<%= link_to 'Back', users_path, class: 'btn btn-primary' %>

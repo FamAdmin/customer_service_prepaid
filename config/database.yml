@@ -6,7 +6,8 @@ default: &default
   timeout: 5000
 
 development:
-  url: <%= ENV['DATABASE_URL'] %>
+  <<: *default
+  database: customer_service_prepaid_development
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -25,9 +26,9 @@ development:
   #   log, notice, warning, error, fatal, and panic
   # Defaults to warning.
   #min_messages: notice
-  
+
 test:
-  url: <%= ENV['TEST_DATABASE_URL'] %>
+  database: customer_service_prepaid_test
 
 production:
   url: <%= ENV['DATABASE_URL'] %>

@@ -5,6 +5,8 @@ class Customer < ApplicationRecord
   has_many :addresses
   has_many :orders
 
+  self.per_page = 25
+
   # returns search result on customers table
   #
   # @param query [String] search parameter

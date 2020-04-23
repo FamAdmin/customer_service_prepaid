@@ -1,5 +1,3 @@
-#
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -39,6 +37,8 @@ gem 'httparty'
 # concurrent http request support
 gem 'typhoeus'
 gem 'dotenv-rails',  require: 'dotenv/rails-now'
+
+gem 'will_paginate', '~> 3.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

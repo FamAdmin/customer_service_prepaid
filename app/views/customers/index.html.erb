@@ -1,33 +1,43 @@
-<h3>HOME PAGE</h3>
-<div class='container-flex customer-view-wrapper'>
-  <%= form_tag(customers_path, {method: :get, class: 'form-inline', enforce_utf8: false}) do %>
-    <div class='form-group customer-search-wrapper'>
-      <%= search_field_tag :q, params[:q], class: 'form-control', placeholder: 'Enter customer info' %>
-      <%= submit_tag 'Search', { name: nil, class: 'btn btn-outline-success my-2 my-sm-0' } %>
-    </div>
-  <% end %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Customer</th>
-        <th>Email</th>
-        <th>Status</th>
-        <th>Shopify Customer ID</th>
-      </tr>
-    </thead>
+<div class="row">
+  <div class="col-12">
+    <div class="box">
+      <div class="box-title">
+        <h3>Customers</h3>
+      </div>
+      <br>
+      <div class="box-content customer-view-wrapper">
+        <%= form_tag(customers_path, {method: :get, class: 'form-inline', enforce_utf8: false}) do %>
+          <div class='form-group customer-search-wrapper'>
+            <%= search_field_tag :q, params[:q], class: 'form-control', placeholder: 'Enter customer info' %>
+            <%= submit_tag 'Search', { name: nil, class: 'btn btn-success my-2 my-sm-0' } %>
+          </div>
+        <% end %>
 
-    <tbody>
-      <% @customers.each do |cust| %>
-        <tr>
-          <td> <%= link_to customer_orders_path(params: { customer_id: cust.id }) do %>
-            <%= cust.first_name.capitalize %> <%= cust.last_name.capitalize %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Shopify Customer ID</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @customers.each do |cust| %>
+              <tr>
+                <td> <%= link_to customer_orders_path(params: { customer_id: cust.id }) do %>
+                  <%= cust.first_name.capitalize %> <%= cust.last_name.capitalize %>
+                  <% end %>
+                 </td>
+                <td><%= cust.email %></td>
+                <td><%= cust.status %></td>
+                <td><%= cust.shopify_customer_id %></td>
+              </tr>
             <% end %>
-           </td>
-          <td><%= cust.email %></td>
-          <td><%= cust.status %></td>
-          <td><%= cust.shopify_customer_id %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
